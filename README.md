@@ -35,12 +35,7 @@ cs = require("color-skimer")
 -- cs.toggle is the functions to toggle the menu
 vim.api.nvim_set_keymap( "n", "<leader>st", "", { callback = cs.toggle, desc = "Search themes" } )
 ```
-or create a command :
-```lua
-cs = require("color-skimer")
--- cs.toggle is the functions to toggle the menu
-vim.api.nvim_create_user_command( "ColorSkimerToggle", cs.toggle, { desc = "command to toggle color-skimer plugin" } )
-```
+or just use the command ```:ColorSkimerToggle```
 
 ### 2: base binds
 - movement:

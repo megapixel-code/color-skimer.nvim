@@ -401,7 +401,11 @@ end
 
 local function setup( opts )
    COLORSCHEME_PARAMS = get_colorscheme_params( opts )
+
    retrieve_last_colorscheme()
+
+   vim.api.nvim_create_user_command( "ColorSkimerToggle", toggle_win,
+                                     { desc = "toggle color-skimer plugin" } )
 end
 
 -- setup({})
