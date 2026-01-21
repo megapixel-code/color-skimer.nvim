@@ -1,13 +1,13 @@
 # Color-skimer
 
-Color-skimer is a lightweight colorscheme/theme switcher. It allow you to change your colorschemes quickly and easily.
+Color-skimer is a lightweight colorscheme/theme switcher. It allow you to change your colorschemes quickly and easily. Inspired by [themery.nvim](https://github.com/zaldih/themery.nvim)
 
 ## TABLE OF CONTENTS
 
 - [FEATURES](#features)
 - [USAGE](#usage)
-   - [how to interact with the plugin](#how-to-interact-with-the-plugin-)
-   - [base binds](#base-binds)
+   - [How to interact with the plugin](#how-to-interact-with-the-plugin-)
+   - [Base binds](#base-binds)
 - [INSTALLATION](#installation)
    - [lazy](#lazy)
    - [others (untested)](#others-untested)
@@ -28,19 +28,19 @@ Color-skimer is a lightweight colorscheme/theme switcher. It allow you to change
 
 ## USAGE
 
-### how to interact with the plugin ?
-with the plugin api :
+### How to interact with the plugin ?
+With the plugin api :
 ```lua
 local color_skimer_toggle_function = require( "color-skimer" ).toggle
 vim.api.nvim_set_keymap( "n", "<leader>st", "", { callback = color_skimer_toggle_function, desc = "Search themes" } )
 ```
 
-or just use the command ```:ColorSkimerToggle```:
+Or just use the command ```:ColorSkimerToggle```:
 ```lua
 vim.api.nvim_set_keymap( "n", "<leader>st", "<cmd>ColorSkimerToggle<CR>", { desc = "Search themes" } )
 ```
 
-### base binds
+### Base binds
 - movement:
    same way as you would for any other buffer (```j```, ```k```, ```C-U```, ```C-D```, etc...)
 - select and save to memory colorscheme : ```<CR>```
@@ -186,7 +186,7 @@ If you give a empty table or no table in setup() the plugin will act as this is 
 ```
 
 ## CUSTOM HOOKS
-color-skimer has great hooks that can be set for all or specific colorschemes. This is the main reason I created this plugin (see [WHY COLOR-SKIMER ?](why-color-skimer-)).
+Color-skimer has great hooks that can be set for all or specific colorschemes. This is the main reason I created this plugin (see [WHY COLOR-SKIMER ?](why-color-skimer-)).
 
 ```lua
 pre_function  > this will be called everytime before the colorscheme is displayed on the screen
