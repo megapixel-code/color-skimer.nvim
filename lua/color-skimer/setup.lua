@@ -1,6 +1,5 @@
 local constants = require( "color-skimer.constants" )
 local utils = require( "color-skimer.utils" )
-local windows = require( "color-skimer.windows" )
 
 --- function that setup the tables to be read by the rest of the program
 --- tables will be set like so:
