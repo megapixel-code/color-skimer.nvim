@@ -27,7 +27,7 @@ local function get_colorscheme_id_from_memory()
    local file, err = io.open( file_path, "r" )
 
    if not file then
-      print( "Could not retrieve the last colorscheme set, err :", err )
+      print( "ERROR: Could not open file \"" .. file_path .. "\", err : " .. err )
       return 1
    end
 
