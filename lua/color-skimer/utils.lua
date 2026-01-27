@@ -71,6 +71,13 @@ end
 --- Reads the last colorscheme set from memory and displays it
 local function retrieve_last_colorscheme()
    local id = get_colorscheme_id_from_memory()
+
+   local params_len = 0
+   for _ in pairs( constants.COLORSCHEME_PARAMS ) do params_len = params_len + 1 end
+   if (id > params_len) then
+      id = 1
+   end
+
    display_colorscheme( constants.COLORSCHEME_PARAMS[id] )
 end
 
