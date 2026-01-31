@@ -2,10 +2,12 @@ local constants = require( "color-skimer.constants" )
 local utils = require( "color-skimer.utils" )
 
 --- Function that setup the tables to be read by the rest of the program
---- @param config color_skimer_config user config
+--- @param opts color_skimer_config|{}|nil user config
 --- @return COLORSCHEME_PARAMS return table that can be read by the program
-local function get_colorscheme_params( config )
+local function get_colorscheme_params( opts )
    local default = constants.DEFAULT_CONFIG
+
+   local config = vim.tbl_deep_extend( "force", default, opts or {} )
 
    local result = {}
 
@@ -14,12 +16,6 @@ local function get_colorscheme_params( config )
    local post_preview
    local pre_save
    local post_save
-
-   for key, _ in pairs( default ) do
-      if config[key] == nil then
-         config[key] = default[key]
-      end
-   end
 
    for _, colorscheme in ipairs( config.colorscheme ) do
       if config.name_override[colorscheme] ~= nil then
