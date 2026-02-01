@@ -54,13 +54,12 @@ vim.api.nvim_set_keymap( "n", "<leader>st", "<cmd>ColorSkimerToggle<CR>", { desc
 ```lua
 return {
    "Megapixel-code/color-skimer.nvim",
-   config = function()
-      require( "color-skimer" ).setup( {
-         -- TODO: config goes here
-      } )
 
-      vim.api.nvim_set_keymap( "n", "<leader>st", "<cmd>ColorSkimerToggle<CR>", { desc = "Search themes" } )
-   end,
+   --- @module "color-skimer"
+   --- @type color_skimer_config
+   opts = {
+      -- TODO: config goes here
+   },
 }
 ```
 
