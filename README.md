@@ -6,7 +6,7 @@ Color-skimer is a lightweight colorscheme/theme switcher. It allow you to change
 
 - [FEATURES](#features)
 - [USAGE](#usage)
-   - [How to interact with the plugin ?](#how-to-interact-with-the-plugin-%3F)
+   - [How to interact with the plugin ?](#how-to-interact-with-the-plugin-)
    - [Base binds](#base-binds)
 - [INSTALLATION](#installation)
    - [Lazy](#lazy)
