@@ -100,6 +100,8 @@ local function toggle_win()
    end
    if constants.COLORSCHEME_PARAMS[1] == nil then
       -- no params, shouldn't happen ?
+      print( "ERROR: no options are available, setup() function has not been run" )
+      print( "       if you are using lazy, please make sure you are using either 'config' OR 'opts' but not both" )
       return
    end
 
