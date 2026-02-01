@@ -127,13 +127,16 @@ If you give a empty table or no table in setup() the plugin will act as this is 
    },
 
    -- Same options as the {lhs} parameter of ':h vim.keymap.set()'
-   keys = {             -- < Redefine some keymaps
-      escape = "<ESC>", -- < The key that you will use to close the plugin menu window.
-      save = "<CR>",    -- < The key that you will use to select and save a colorscheme in the menu window.
+   -- NOTE: If the variable is an empty string it won't set the keymap
+   --       That means you wont have a way to interact with the plugin
+   keys = {               -- < Redefine some keymaps
+      toggle_plugin = "", -- < Open/Close the plugin menu window, I use "<leader>st" in my config
+      escape = "<ESC>",   -- < Close the plugin menu window.
+      save = "<CR>",      -- < Select and save a colorscheme in the menu window.
    },
 
-   -- For more informations about the pre_preview, post_preview, pre_save and post_save configurations,
-   -- look at the readme on the [custom hooks] section
+   -- For more information about the pre_preview, post_preview, pre_save and post_save configurations,
+   -- look at the README on the [CUSTOM HOOKS] section
    pre_preview = {
       ["*"] = function() end,
    },

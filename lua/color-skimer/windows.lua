@@ -61,13 +61,15 @@ local function setup_win_config()
       end,
    } )
 
-   vim.api.nvim_buf_set_keymap( constants.INTERFACE.buf_id, "n", constants.COLORSCHEME_PARAMS.keys.save, "", {
-      callback = function()
-         local line = vim.api.nvim_win_get_cursor( constants.INTERFACE.win_id )[1]
-         utils.save_colorscheme( line )
-         close_win()
-      end,
-   } )
+   if constants.COLORSCHEME_PARAMS.keys.save ~= "" then
+      vim.api.nvim_buf_set_keymap( constants.INTERFACE.buf_id, "n", constants.COLORSCHEME_PARAMS.keys.save, "", {
+         callback = function()
+            local line = vim.api.nvim_win_get_cursor( constants.INTERFACE.win_id )[1]
+            utils.save_colorscheme( line )
+            close_win()
+         end,
+      } )
+   end
 end
 
 --- Function that setup the future closing of the window and the buffer with autocmds/keymaps
@@ -84,12 +86,14 @@ local function setup_win_closing()
       once = true,
    } )
 
-   vim.api.nvim_buf_set_keymap( constants.INTERFACE.buf_id, "n", constants.COLORSCHEME_PARAMS.keys.escape, "", {
-      callback = function()
-         vim.api.nvim_buf_del_keymap( constants.INTERFACE.buf_id, "n", constants.COLORSCHEME_PARAMS.keys.escape )
-         close_win()
-      end,
-   } )
+   if constants.COLORSCHEME_PARAMS.keys.escape ~= "" then
+      vim.api.nvim_buf_set_keymap( constants.INTERFACE.buf_id, "n", constants.COLORSCHEME_PARAMS.keys.escape, "", {
+         callback = function()
+            vim.api.nvim_buf_del_keymap( constants.INTERFACE.buf_id, "n", constants.COLORSCHEME_PARAMS.keys.escape )
+            close_win()
+         end,
+      } )
+   end
 end
 
 --- Function that will open/close the menu window

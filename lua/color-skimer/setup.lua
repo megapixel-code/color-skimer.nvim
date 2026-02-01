@@ -93,6 +93,13 @@ local function setup( opts )
 
    create_data_file()
 
+   if constants.COLORSCHEME_PARAMS.keys.toggle_plugin ~= "" then
+      vim.api.nvim_set_keymap( "n", constants.COLORSCHEME_PARAMS.keys.toggle_plugin, "<cmd>ColorSkimerToggle<CR>",
+         {
+            desc = "Toggle color-skimer plugin"
+         } )
+   end
+
    utils.retrieve_last_colorscheme()
 end
 
