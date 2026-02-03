@@ -140,14 +140,6 @@ local function toggle_win()
 
    -- place the cursor in the right starting position
    local row = utils.get_colorscheme_id_from_memory()
-
-   local size = 0
-   for _, _ in ipairs( constants.COLORSCHEME_PARAMS ) do size = size + 1 end
-
-   if row > size then
-      row = 1
-   end
-
    vim.api.nvim_win_set_cursor( constants.INTERFACE.win_id, { row, 0 } )
 end
 

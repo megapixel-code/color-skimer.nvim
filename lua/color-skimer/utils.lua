@@ -13,8 +13,9 @@ local function get_data_dir()
    return file_dir
 end
 
---- Returns the colorscheme id from the file in memory or 1 if file is empty
---- @return integer colorscheme_id last colorscheme set or 1 if file is empty
+--- Returns the colorscheme id from the file in memory, 1 if file is empty and
+--- last id if the id in the memory is out of bounds
+--- @return integer colorscheme_id last colorscheme set
 local function get_colorscheme_id_from_memory()
    local file_path = get_data_dir() .. "/data"
    local file, err = io.open( file_path, "r" )
@@ -25,10 +26,18 @@ local function get_colorscheme_id_from_memory()
    end
 
    -- only read the first line
-   local colorscheme_id = file:read( "*l" )
+   local colorscheme_id_str = file:read( "*l" )
    file:close()
 
-   return tonumber( colorscheme_id ) or 1
+   local colorscheme_id = tonumber( colorscheme_id_str ) or 1
+
+   local size = 0
+   for _, _ in ipairs( constants.COLORSCHEME_PARAMS ) do size = size + 1 end
+   if (colorscheme_id > size) then
+      colorscheme_id = size
+   end
+
+   return colorscheme_id
 end
 
 --- This function will preview the colorscheme, we execute pre and post functions to
@@ -70,15 +79,9 @@ end
 
 --- Reads the last colorscheme set from memory and displays it
 local function retrieve_last_colorscheme()
-   local id = get_colorscheme_id_from_memory()
+   local row = get_colorscheme_id_from_memory()
 
-   local params_len = 0
-   for _ in pairs( constants.COLORSCHEME_PARAMS ) do params_len = params_len + 1 end
-   if (id > params_len) then
-      id = 1
-   end
-
-   display_colorscheme( constants.COLORSCHEME_PARAMS[id] )
+   display_colorscheme( constants.COLORSCHEME_PARAMS[row] )
 end
 
 --- Write the content inside the menu buffer and setup the buffer
@@ -101,8 +104,8 @@ end
 
 --- This function is called every time the cursor moved, we update the displayed colorscheme.
 local function cursor_moved()
-   local line = vim.api.nvim_win_get_cursor( constants.INTERFACE.win_id )[1]
-   display_colorscheme( constants.COLORSCHEME_PARAMS[line] )
+   local row = vim.api.nvim_win_get_cursor( constants.INTERFACE.win_id )[1]
+   display_colorscheme( constants.COLORSCHEME_PARAMS[row] )
 end
 
 return {
