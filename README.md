@@ -2,6 +2,15 @@
 
 Color-skimer is a lightweight colorscheme/theme switcher. It allow you to change your colorschemes quickly and easily. Inspired by [themery.nvim](https://github.com/zaldih/themery.nvim).
 
+<img 
+    style="display: block; 
+           margin-left: auto;
+           margin-right: auto;
+           width: 85%;"
+    src="https://github.com/user-attachments/assets/ce493171-aa43-4d1c-897d-745ff1cc9c5f" 
+    alt="color-skimer">
+</img>
+
 ## TABLE OF CONTENTS
 
 - [FEATURES](#features)
