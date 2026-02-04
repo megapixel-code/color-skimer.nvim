@@ -180,10 +180,10 @@ Examples :
    },
    post_preview = {
       ["*"] = function()
-         print("we are previewing a colorscheme")
+         print( "we are previewing a colorscheme" )
       end,
       ["vague"] = function()
-         print("we are previewing the vague colorscheme")
+         print( "we are previewing the vague colorscheme" )
       end,
    },
 
@@ -193,7 +193,7 @@ Examples :
    post_save = {
       ["*"] = function()
          -- message after saving, right before closing the menu window
-         print("colorscheme set and saved !")
+         print( "colorscheme set and saved !" )
       end,
    },
 }

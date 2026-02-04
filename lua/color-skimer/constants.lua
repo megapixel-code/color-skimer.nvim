@@ -84,6 +84,37 @@ DEFAULT_CONFIG = {
    },
 }
 
+local hooks_config_example = {
+   pre_preview = {
+      -- Here it would set nvim in dark mode for every colorscheme
+      -- except vscode where we set it to light mode
+      ["*"] = function()
+         vim.o.background = "dark"
+      end,
+      ["vscode"] = function()
+         vim.o.background = "light"
+      end,
+   },
+   post_preview = {
+      ["*"] = function()
+         print( "we are previewing a colorscheme" )
+      end,
+      ["vague"] = function()
+         print( "we are previewing the vague colorscheme" )
+      end,
+   },
+
+   pre_save = {
+      ["*"] = function() end,
+   },
+   post_save = {
+      ["*"] = function()
+         -- message after saving, right before closing the menu window
+         print( "colorscheme set and saved !" )
+      end,
+   },
+}
+
 --- @class INTERFACE
 --- @field buf_id number?
 --- @field win_id number?
