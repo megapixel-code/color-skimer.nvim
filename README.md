@@ -46,10 +46,7 @@ local color_skimer_toggle_function = require( "color-skimer" ).toggle
 vim.api.nvim_set_keymap( "n", "<leader>st", "", { callback = color_skimer_toggle_function, desc = "Search themes" } )
 ```
 
-Or just use the command ```:ColorSkimerToggle```:
-```lua
-vim.api.nvim_set_keymap( "n", "<leader>st", "<cmd>ColorSkimerToggle<CR>", { desc = "Search themes" } )
-```
+Or just use the command : ```:ColorSkimerToggle```
 
 ### Base binds
 - movement:
@@ -79,7 +76,6 @@ use 'Megapixel-code/color-skimer.nvim'
 require( "color-skimer" ).setup( {
    -- TODO: config goes here
 } )
-vim.api.nvim_set_keymap( "n", "<leader>st", "<cmd>ColorSkimerToggle<CR>", { desc = "Search themes" } )
 ```
 
 Vim-plug :
@@ -88,7 +84,6 @@ Plug 'Megapixel-code/color-skimer.nvim'
 require( "color-skimer" ).setup( {
    -- TODO: config goes here
 } )
-vim.api.nvim_set_keymap( "n", "<leader>st", "<cmd>ColorSkimerToggle<CR>", { desc = "Search themes" } )
 ```
 
 ## CONFIGURATION
