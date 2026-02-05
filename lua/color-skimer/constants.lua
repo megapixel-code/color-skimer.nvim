@@ -63,7 +63,7 @@ DEFAULT_CONFIG = {
    -- NOTE: If the variable is an empty string it won't set the keymap
    --       That means you might not have a way to interact with the plugin
    keys = {               -- < Redefine some keymaps
-      toggle_plugin = "", -- < Open/Close the plugin menu window, Example: I personally use "<leader>st"
+      toggle_plugin = "", -- < Open/Close the plugin menu window, Example: I personally use "<leader>sc" (for search colorscheme)
       escape = "<ESC>",   -- < Close the plugin menu window.
       save = "<CR>",      -- < Select and save a colorscheme in the menu window.
    },

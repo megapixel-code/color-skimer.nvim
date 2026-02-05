@@ -134,7 +134,7 @@ If you give a empty table or no table in setup() the plugin will act as this is 
    -- NOTE: If the variable is an empty string it won't set the keymap
    --       That means you might not have a way to interact with the plugin
    keys = {               -- < Redefine some keymaps
-      toggle_plugin = "", -- < Open/Close the plugin menu window, Example: I personally use "<leader>st"
+      toggle_plugin = "", -- < Open/Close the plugin menu window, Example: I personally use "<leader>sc"
       escape = "<ESC>",   -- < Close the plugin menu window.
       save = "<CR>",      -- < Select and save a colorscheme in the menu window.
    },
