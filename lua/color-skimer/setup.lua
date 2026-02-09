@@ -1,6 +1,8 @@
 local constants = require( "color-skimer.constants" )
 local utils = require( "color-skimer.utils" )
 
+
+
 --- Function that setup the tables to be read by the rest of the program
 --- @param opts color_skimer_config|{}|nil user config
 --- @return COLORSCHEME_PARAMS return table that can be read by the program
@@ -72,6 +74,8 @@ local function get_colorscheme_params( opts )
    return result
 end
 
+
+
 --- Will create data file if the file doesnt aleready exist
 local function create_data_file()
    local file_path = utils.get_data_dir() .. "/data"
@@ -102,6 +106,8 @@ local function setup( opts )
 
    utils.retrieve_last_colorscheme()
 end
+
+
 
 return {
    setup = setup,

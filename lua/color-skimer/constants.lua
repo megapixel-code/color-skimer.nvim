@@ -84,6 +84,7 @@ DEFAULT_CONFIG = {
    },
 }
 
+--- @diagnostic disable-next-line: unused-local
 local hooks_config_example = {
    pre_preview = {
       -- Here it would set nvim in dark mode for every colorscheme

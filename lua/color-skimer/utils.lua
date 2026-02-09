@@ -1,5 +1,7 @@
 local constants = require( "color-skimer.constants" )
 
+
+
 --- Returns the directory path of the plugin
 --- @return string file_path directory path of the plugin
 local function get_data_dir()
@@ -12,6 +14,8 @@ local function get_data_dir()
 
    return file_dir
 end
+
+
 
 --- Returns the colorscheme id from the file in memory, 1 if file is empty and
 --- last id if the id in the memory is out of bounds
@@ -40,6 +44,8 @@ local function get_colorscheme_id_from_memory()
    return colorscheme_id
 end
 
+
+
 --- This function will preview the colorscheme, we execute pre and post functions to
 --- make sure the colorscheme is displayed correcly.
 --- @param colorscheme_param colorscheme_param table with the params of the colorscheme to display
@@ -50,6 +56,8 @@ local function display_colorscheme( colorscheme_param )
 
    colorscheme_param.post_preview()
 end
+
+
 
 --- When we have selected the colorscheme we call pre and post callbacks, we
 --- also display the colorscheme and save to file
@@ -77,12 +85,16 @@ local function save_colorscheme( colorscheme_id )
    colorscheme_param.post_save()
 end
 
+
+
 --- Reads the last colorscheme set from memory and displays it
 local function retrieve_last_colorscheme()
    local row = get_colorscheme_id_from_memory()
 
    display_colorscheme( constants.COLORSCHEME_PARAMS[row] )
 end
+
+
 
 --- Write the content inside the menu buffer and setup the buffer
 local function write_to_buf()
@@ -102,11 +114,15 @@ local function write_to_buf()
    vim.api.nvim_set_option_value( "modifiable", false, { buf = constants.INTERFACE.buf_id } )
 end
 
+
+
 --- This function is called every time the cursor moved, we update the displayed colorscheme.
 local function cursor_moved()
    local row = vim.api.nvim_win_get_cursor( constants.INTERFACE.win_id )[1]
    display_colorscheme( constants.COLORSCHEME_PARAMS[row] )
 end
+
+
 
 return {
    get_colorscheme_id_from_memory = get_colorscheme_id_from_memory,

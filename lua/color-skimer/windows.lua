@@ -10,6 +10,7 @@ local utils = require( "color-skimer.utils" )
 --- @field col integer north-west column coordinate of the window
 --- @field row integer north-west row coordinate of the window
 
+
 --- Returns a table with the coordinates and size of the window
 --- @return win_shape
 local function get_win_shape()
@@ -29,6 +30,8 @@ local function get_win_shape()
    return result
 end
 
+
+
 --- Function to close the window, does nothing if no window is open
 local function close_win()
    if constants.INTERFACE.win_id == nil then
@@ -41,6 +44,8 @@ local function close_win()
       win_id = nil,
    }
 end
+
+
 
 --- Function that setup the options and autocmds of the menu window
 local function setup_win_config()
@@ -72,6 +77,8 @@ local function setup_win_config()
    end
 end
 
+
+
 --- Function that setup the future closing of the window and the buffer with autocmds/keymaps
 local function setup_win_closing()
    vim.api.nvim_set_option_value( "bufhidden", "wipe", { buf = constants.INTERFACE.buf_id } )
@@ -97,6 +104,8 @@ local function setup_win_closing()
       } )
    end
 end
+
+
 
 --- Function that will open/close the menu window
 local function toggle_win()
@@ -144,6 +153,8 @@ local function toggle_win()
    local row = utils.get_colorscheme_id_from_memory()
    vim.api.nvim_win_set_cursor( constants.INTERFACE.win_id, { row, 0 } )
 end
+
+
 
 return {
    toggle_win = toggle_win,
