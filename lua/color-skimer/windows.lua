@@ -65,8 +65,8 @@ local function setup_win_config()
       vim.api.nvim_buf_set_keymap( constants.INTERFACE.buf_id, "n", constants.COLORSCHEME_PARAMS.keys.save, "", {
          callback = function()
             local line = vim.api.nvim_win_get_cursor( constants.INTERFACE.win_id )[1]
-            utils.save_colorscheme( line )
             close_win()
+            utils.save_colorscheme( line )
          end,
       } )
    end
@@ -81,7 +81,9 @@ local function setup_win_closing()
       buffer = constants.INTERFACE.buf_id,
       callback = function()
          close_win()
-         utils.retrieve_last_colorscheme()
+         vim.schedule(
+            utils.retrieve_last_colorscheme
+         )
       end,
       once = true,
    } )
