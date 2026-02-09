@@ -231,15 +231,16 @@ colorscheme = {
    "rosebones",
    "tokyobones",
    "neobones",
-   "terafox",
    "base16-ashes",
    "base16-kanagawa-dragon",
    "base16-vulcan",
    "base16-tarot",
+   "boo",
    "sunset_cloud",
    "radioactive_waste",
    "forest_stream",
    "crimson_moonlight",
+   "mfd-dark",
 },
 ```
 
