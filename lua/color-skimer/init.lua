@@ -2,7 +2,8 @@ local windows = require( "color-skimer.windows" )
 local setup = require( "color-skimer.setup" )
 local utils = require( "color-skimer.utils" )
 
--- TODO: random option
+-- TODO: rainbow base16
+-- TODO: center text
 
 return {
    set_random_colorscheme = utils.set_random_colorscheme,

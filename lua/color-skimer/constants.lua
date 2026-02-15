@@ -8,20 +8,22 @@ PLUGIN_NAME = "color-skimer"
 --- @field [string] function function that will be executed at a specific time
 
 --- @class keys
---- @field toggle_plugin string?
---- @field escape string?
---- @field save string?
---- @field random string?
+--- @field toggle_plugin? string
+--- @field escape? string
+--- @field save? string
+--- @field random? string
 
 --- @class color_skimer_config
 --- @field colorscheme string[] array of all of your colorschemes
---- @field name_override name_override? this will override the name displayed in the preview menu
---- @field keys keys? The key that you will use to close the plugin menu window
---- @field pre_preview function_field? this will be called before each preview of the colorscheme
---- @field post_preview function_field? this will be called after each preview of the colorscheme
---- @field pre_save function_field? this will be called before we save the colorscheme to memory
---- @field post_save function_field? this will be called after we save the colorscheme to memory
+--- @field name_override? name_override this will override the name displayed in the preview menu
+--- @field window_config? window_config override window config of the plugin
+--- @field keys? keys The key that you will use to close the plugin menu window
+--- @field pre_preview? function_field this will be called before each preview of the colorscheme
+--- @field post_preview? function_field this will be called after each preview of the colorscheme
+--- @field pre_save? function_field this will be called before we save the colorscheme to memory
+--- @field post_save? function_field this will be called after we save the colorscheme to memory
 
+--- @module "color-skimer"
 --- @type color_skimer_config
 DEFAULT_CONFIG = {
    colorscheme = { -- < list of your colorschemes names
@@ -138,7 +140,8 @@ INTERFACE = {
 
 --- @class COLORSCHEME_PARAMS
 --- @field [integer] colorscheme_param
---- @field keys keys?
+--- @field keys? keys
+--- @field window_config? window_config
 
 --- @type COLORSCHEME_PARAMS
 COLORSCHEME_PARAMS = {}
