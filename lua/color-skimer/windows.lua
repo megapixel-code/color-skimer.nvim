@@ -4,22 +4,15 @@ local utils = require( "color-skimer.utils" )
 -- NOTE: this file is partly inspired by the themery plugin :
 --       https://github.com/zaldih/themery.nvim/
 
---- @class win_shape
---- @field width integer width of the window
---- @field height integer height of the window
---- @field col integer north-west column coordinate of the window
---- @field row integer north-west row coordinate of the window
-
-
 --- Returns a table with the coordinates and size of the window
---- @return win_shape
+--- @return color_skimer_win_shape
 local function get_win_shape()
    local editor_columns = vim.api.nvim_get_option_value( "columns", {} )
    local editor_rows = vim.api.nvim_get_option_value( "lines", {} )
    local width = 40
    local height = 15
 
-   --- @type win_shape
+   --- @type color_skimer_win_shape
    local result = {
       width = width - 2,
       height = height - 2,
@@ -127,24 +120,22 @@ local function toggle_win()
       return
    end
 
-   local coords = get_win_shape()
+   local shape
+   if constants.COLORSCHEME_PARAMS.window_config.shape == nil then
+      shape = get_win_shape()
+   else
+      shape = constants.COLORSCHEME_PARAMS.window_config.shape()
+   end
 
-   -- TODO: feature to override thoses args
    --- @type vim.api.keyset.win_config
-   local opts = {
-      style = "minimal",
-      relative = "editor",
-      border = "single",
-      width = coords.width,
-      height = coords.height,
-      row = coords.row,
-      col = coords.col,
-      title = " Color-Skimer ",
-      title_pos = "center",
-   }
+   local config = constants.COLORSCHEME_PARAMS.window_config.config
+   config.width = shape.width
+   config.height = shape.height
+   config.row = shape.row
+   config.col = shape.col
 
    local buf_id = vim.api.nvim_create_buf( false, true )
-   local win_id = vim.api.nvim_open_win( buf_id, true, opts )
+   local win_id = vim.api.nvim_open_win( buf_id, true, config )
 
    constants.INTERFACE = {
       buf_id = buf_id,

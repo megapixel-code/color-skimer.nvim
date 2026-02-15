@@ -14,6 +14,7 @@ local function get_colorscheme_params( opts )
    local result = {}
 
    result.keys = config.keys
+   result.window_config = config.window_config
 
    local name
    local pre_preview

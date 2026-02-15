@@ -95,6 +95,7 @@ require( "color-skimer" ).setup( {
 If you give a empty table or no table in setup() the plugin will act as this is your config:
 
 ```lua
+--- @module "color-skimer"
 --- @type color_skimer_config
 {
    colorscheme = { -- < list of your colorschemes names
@@ -131,6 +132,30 @@ If you give a empty table or no table in setup() the plugin will act as this is 
       -- [Example]
       -- The name displayed for the "default" colorscheme will be displayed as "tluafed" in the preview menu
       -- ["default"] = "tluafed",
+   },
+
+   window_config = {
+      -- Very similar options as the {config} parameter of `:h nvim_open_win()`
+      -- NOTE: width, height, row and col fields will be overwritten by the plugin
+      --       if you want to set theses yourself, look at the "shape" option bellow
+      config = {
+         style = "minimal",
+         relative = "editor",
+         border = "single",
+         title = " Color-Skimer ",
+         title_pos = "center",
+      },
+      -- You can also have a function give the width, height, row and col of the menu window
+      -- shape = function()
+      --    -- your function returning a table with width, height, row and col fields
+      --    --- @type color_skimer_win_shape
+      --    return {
+      --       width = ?,
+      --       height = ?,
+      --       row = ?,
+      --       col = ?,
+      --    }
+      -- end,
    },
 
    -- Same options as the {lhs} parameter of ':h vim.keymap.set()'

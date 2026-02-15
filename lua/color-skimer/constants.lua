@@ -7,6 +7,16 @@ PLUGIN_NAME = "color-skimer"
 --- @class function_field
 --- @field [string] function function that will be executed at a specific time
 
+--- @class window_config
+--- @field config? vim.api.keyset.win_config
+--- @field shape? fun(): color_skimer_win_shape
+
+--- @class color_skimer_win_shape
+--- @field width integer
+--- @field height integer
+--- @field row integer
+--- @field col integer
+
 --- @class keys
 --- @field toggle_plugin? string
 --- @field escape? string
@@ -60,6 +70,30 @@ DEFAULT_CONFIG = {
       -- [Example]
       -- The name displayed for the "default" colorscheme will be displayed as "tluafed" in the preview menu
       -- ["default"] = "tluafed",
+   },
+
+   window_config = {
+      -- Very similar options as the {config} parameter of `:h nvim_open_win()`
+      -- NOTE: width, height, row and col fields will be overwritten by the plugin
+      --       if you want to set theses yourself, look at the "shape" option bellow
+      config = {
+         style = "minimal",
+         relative = "editor",
+         border = "single",
+         title = " Color-Skimer ",
+         title_pos = "center",
+      },
+      -- You can also have a function give the width, height, row and col of the menu window
+      -- shape = function()
+      --    -- your function returning a table with width, height, row and col fields
+      --    --- @type color_skimer_win_shape
+      --    return {
+      --       width = ?,
+      --       height = ?,
+      --       row = ?,
+      --       col = ?,
+      --    }
+      -- end,
    },
 
    -- Same options as the {lhs} parameter of ':h vim.keymap.set()'
